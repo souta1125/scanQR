@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/spinnerBtn.css">
+    <link rel="stylesheet" href="./assets/css/transPage.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#073963">
+    <!-- Google Fontsの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-content">
+      <div id="loading"></div>
+      <div id="scanQR">
+        <header>
+          <h1>
+            パークチケットをスキャン
+          </h1>
+        </header>
+        <main>
+          <canvas id="QRCanvas"></canvas>
+        </main>
+        <footer>
+          <table>
+            <tbody>
+              <tr>
+                <th>チケット番号</th>
+                <td>
+                  <span id="ticketId">00000000000</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="list-grid" style="--i: 2;">
+            <li>
+              <button type="button" class="btnType-2" id="btnCancelTicket" aria-disabled="false">
+                キャンセル
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btnType-1" id="btnApproveTicket" aria-disabled="false">
+                承認
+              </button>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="./assets/js/spinnerBtn.js" defer></script>
+  </body>
+</html>

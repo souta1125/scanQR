@@ -1,0 +1,71 @@
+/* carousel */
+.carousel-1 {
+  display: grid;
+  grid-template-columns: repeat(var(--i), 15rem);
+  gap: 1.6rem;
+  overflow: scroll hidden;
+  padding: .1rem;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-item {
+    aspect-ratio: 9/16;
+    border-radius: 1.6rem;
+    box-shadow: 0 0 .1rem #333;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .2));
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+}
+
+.carousel-2 {
+  display: grid;
+  grid-template-columns: repeat(var(--i), calc(100% - 3.2rem));
+  gap: 1.6rem;
+  overflow: scroll hidden;
+  padding: .1rem;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-item {
+    aspect-ratio: 16/9;
+    border-radius: 1.6rem;
+    box-shadow: 0 0 .1rem #333;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: center;
+    z-index: 1;
+
+    &::before {
+      background: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, .2));
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+}

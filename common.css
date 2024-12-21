@@ -1,0 +1,275 @@
+html {
+  font-size: 10px;
+  /* コピー禁止！！ */
+  user-select: none;
+  -webkit-user-select: none;
+  /* ズーム禁止 */
+  touch-action: pan-x pan-y;
+  -webkit-touch-action: pan-x pan-y;
+}
+
+body {
+  color: #000;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  letter-spacing: 0.05rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+.page-content {
+  background-color: #fff;
+  color: var(--c-txt);
+  font-size: 1.4rem;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+/* main */
+main {
+  background-color: #fff;
+  box-shadow: 0 0 .1rem #333;
+  height: 100%;
+  width: min(100%, var(--w-pc));
+  margin: 0 auto;
+  position: relative;
+}
+
+/* accordion */
+.accordion-wrap{
+  details{
+    border-bottom: .1rem solid var(--c-gray);
+    summary{
+      cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: 700;
+      list-style: none;
+      padding: 1.6rem;
+      transition: opacity .3s;
+
+      &:hover{
+        opacity: .8;
+      }
+
+      h3{
+        position: relative;
+        width: 100%;
+
+        &::before{
+          background-image: url("./assets/img/icons/arrow.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          content: "";
+          display: block;
+          height: 2.4rem;
+          width: 2.4rem;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%) rotate(90deg);
+          transition: transform .3s;
+        }
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+    .inner{
+      padding: 1.6rem;
+    }
+
+    &[open]{
+      summary{
+        h3{
+          color: var(--c-active);
+          &::before{
+            transform: translateY(-50%) rotate(-90deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* button style */
+[class*="btnType"] {
+  border-radius: .4rem;
+  cursor: not-allowed;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.2rem 1.6rem;
+  position: relative;
+
+  &[aria-disabled="false"] {
+    cursor: pointer;
+    transition: opacity .3s;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.btnType-1 {
+  background-color: var(--c-deactive);
+  color: #fff;
+
+  &[aria-disabled="false"] {
+    background-color: var(--c-active);
+    color: #fff;
+  }
+}
+
+.btnType-2 {
+  border: .1rem solid var(--c-deactive);
+  color: var(--c-deactive);
+
+  &[aria-disabled="false"] {
+    border-color: var(--c-active);
+    color: var(--c-active);
+  }
+}
+
+.btnType-3 {
+  color: var(--c-deactive);
+  text-decoration: underline;
+
+  &[aria-disabled="false"] {
+    color: var(--c-active);
+  }
+}
+
+/* color */
+.c-aqua{
+  color: var(--c-active);
+}
+
+.c-green{
+  color: var(--c-green);
+}
+
+.c-gray{
+  color: var(--c-gray);
+}
+
+.c-orange{
+  color: var(--c-orange);
+}
+
+.c-yellow{
+  color: var(--c-yellow);
+}
+
+/* column */
+.column-wrap {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pcColumn-wrap {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media(min-width: 768px) {
+  .pcColumn-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* flexBox */
+.flexBox {
+  display: flex;
+  flex-wrap: wrap;
+
+  >* {
+    width: fit-content;
+  }
+}
+
+/* list style */
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--i), 1fr);
+  gap: 1.6rem;
+}
+
+.list-1{
+  display: grid;
+  gap: .8rem;
+
+  li {
+    >* {
+      box-shadow: 0 0 .1rem #333;
+      border-radius: .4rem;
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: 6.0rem 7fr;
+      padding: 1.2rem;
+
+      .imgBox{
+        aspect-ratio: 1;
+        border: .2rem solid var(--c-active);
+        border-radius: 99rem;
+        height: 6.0rem;
+        width: 6.0rem;
+        overflow: hidden;
+
+        img{
+          border: .2rem solid #fff;
+          border-radius: 99rem;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .txtBox{
+        .ttl{
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.list-dotted {
+  >* {
+    padding-left: 1.6rem;
+    position: relative;
+
+    &::before {
+      content: "・";
+      display: block;
+      height: 1.6rem;
+      width: 1.6rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.list-notice {
+  >* {
+    padding-left: 1.6rem;
+    position: relative;
+
+    &::before {
+      content: "※";
+      display: block;
+      height: 1.6rem;
+      width: 1.6rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
