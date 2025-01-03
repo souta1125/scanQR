@@ -1,0 +1,72 @@
+#upsell {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  width: min(calc(100% - 3.2rem), calc(var(--w-pc) - 3.2rem));
+  padding: 1.6rem;
+  position: fixed;
+  top: 1.6rem;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  transition: all .4s ease;
+  visibility: hidden;
+  z-index: 2;
+
+  &.is-active {
+    transform: translate(-50%, 0);
+    visibility: visible;
+  }
+
+  p {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 3.6rem);
+
+    &[href="http"] {
+      text-decoration: underline;
+    }
+  }
+
+  .btn-close-upsell {
+    height: 2.4rem;
+    width: 2.4rem;
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    transform: translate(0, -50%);
+
+    &::before {
+      content: "\e5cd";
+      color: var(--c-active);
+    }
+  }
+}
+
+.scanQR-wrap {
+  height: 100dvh;
+  width: 100%;
+  position: relative;
+
+  canvas {
+    background-color: var(--bgc-gray_pale);
+    height: 100dvh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .txtBox {
+    background-color: #333;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    color: #fff;
+    padding: 3.2rem 1.6rem;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+    width: min(100%, var(--w-pc));
+    z-index: 2;
+  }
+}

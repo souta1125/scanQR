@@ -1,0 +1,182 @@
+/*---------------------------------------
+
+
+	README: class命名ルール
+
+	1. 文体はキャメルケース
+		ex) .mainVis
+
+	2. 要素や状態を表す場合、接頭辞（ハイフン）でつなぐ。
+		ex) 要素：　   .btn-link, icn-home
+			状態：   .is-active, is-hide,
+			あるなし： .has-icon, has-vis,
+			別バリ：  .by-whiteLine, by-paint,
+
+		※モジュールは ".linkBtn" でOK。
+
+
+-----------------------------------------*/
+
+html {
+  font-size: 10px;
+  touch-action: pan-x pan-y;
+
+  body {
+    color: var(--c-txt);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    letter-spacing: 0.05rem;
+    line-height: 1.5;
+    position: relative;
+    --webkit-text-size-adjust: 100%;
+  }
+}
+
+/* ====================================== */
+
+/* button style */
+.btn-primary {
+  background-color: var(--c-purple);
+  border-radius: 0.4rem;
+  color: #fff;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1.2rem 1.6rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  &[aria-disabled="true"] {
+    background-color: var(--c-gray) !important;
+    cursor: not-allowed;
+  }
+}
+
+.btn-secondary {
+  border: 0.1rem solid var(--c-purple);
+  border-radius: 0.4rem;
+  color: var(--c-purple);
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1.2rem 1.6rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  &[aria-disabled="true"] {
+    border-color: var(--c-gray);
+    color: var(--c-gray);
+    cursor: not-allowed;
+  }
+}
+
+.btn-tertiary {
+  color: var(--c-purple);
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  text-decoration: underline;
+  width: 100%;
+
+  &[aria-disabled="true"] {
+    color: var(--c-gray);
+    cursor: not-allowed;
+  }
+}
+
+/* carousel */
+.carousel-banner {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(var(--i), calc(100% - 3.2rem));
+  overflow: scroll hidden;
+  padding: 0.1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: center;
+  }
+}
+
+/* column */
+.column-wrap {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pcColumn-wrap {
+  display: grid;
+  gap: 1.6rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* flexBox */
+.flexBox {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+
+  > * {
+    width: fit-content;
+  }
+}
+
+/* list style */
+.list-grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(var(--i), 1fr);
+}
+
+/* ====================================== */
+
+/* Googl Material Icon */
+[class*="icn-"] {
+  direction: ltr;
+  display: inline-block;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-size: 2.4rem;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+/* ====================================== */
+
+.pageContent {
+  background-color: #fff;
+  height: 100%;
+  width: min(100%, var(--w-pc));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+
+  main {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+  }
+}
+
